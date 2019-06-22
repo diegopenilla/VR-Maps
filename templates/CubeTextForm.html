@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Creating Nodes{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Creating your Worlds</h1>
+</div>
+
+<img src="/static/cube.png" alt="Cube" width="200"/>
+<div class="page-header">
+    <h2>Create a Cube</h2>
+    <li>Specify the name of the cube: if it does not exist it will create a new one, if it already exists it will overwrite it.</li>
+    <li>Add the text that you want to add in your Cube</li>
+    <li>Hit Submit to see your Cube in 3D :D</li>
+    <br>
+
+        {{ wtf.quick_form(form)}}
+
+</div>
+{% endblock %}
+
+{% block body %}
+    {{ super() }}
+    {{ content }}
+{% endblock %}

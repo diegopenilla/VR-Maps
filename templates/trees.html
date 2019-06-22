@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+
+{% block title %}Memory Trees{% endblock %}
+
+{% block page_content %} 
+    {{ super() }}
+    <img src="/static/tree.png" alt="Cube" width="150"/>
+    {{ wtf.quick_form(form) }}
+{% endblock %}

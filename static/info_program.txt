@@ -1,0 +1,29 @@
+
+
+<img src="/static/logo1.png" alt="TreeMaps" width="350"/>
+
+
+**A** platform for accelerated learning and sharing of knowledge and memories. Links information in proven chains of easy, compelling and cohesive ways of  learning and exposes them as virtual trees.  
+
+## The Platform
+- Create trees in which branches are curated tracks of progressive learning.
+- Monitor and suggest, link relationships between user properties/interests.
+- **Graphical User Interface** gamifies the experience in 3D, initially users would be traversing the trees by looking at plain text. 
+But images, videos, audio would come in the future. Because the posibility of looking at text, it is instrinsically also possible:
+    - To see the Code and its Output! That is, with Docker containers.
+    - Educational content can also be easily displayed. 
+    
+The gamified experience would target initially teenagers (easier educational content) and young people. 
+And locks them in by creating a "Hero" (properties: level, skills, experience) z.B a Hero that has traversed chemistry trees would be an Alchemist. 
+Add level up, add useless customization to create complexity. The GUI is inspired by minecraft, in which users are able to use building blocks to create their own trees and CUBES. 
+Experienced programmers would have access to their own Docker Containers. 
+
+### Neo4j
+The database engine behind all of this. IT holds the data structures for the trees, cubes and USERS. 
+Graph algorithms provided would suggest content (tree tracks, continuations inside trees, other users) and identify the interests of the community. ("Medium knows soo well what I'm interested in"). 
+
+### Subscription: 
+- After exceeding a quota of memory a subscription of 3 dollars would be asked.  
+- Most of the susbscription money would be cycled through the platform to incentivate curated content. 
+- Users of the plaform would have **Educational and Monetary** benefits. 
+

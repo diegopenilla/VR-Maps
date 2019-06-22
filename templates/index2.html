@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}TreeMaps{% endblock %}
+
+{% block page_content %}
+<img src="/static/logo1.png" alt="TreeMaps" width="350"/>
+<br>
+
+<li>A platform for accelerated learning and sharing of knowledge and memories.</li> 
+<li>Links information in proven chains of easy, compelling and cohesive ways of learning and exposes them as virtual trees</li>  
+
+<div class="page-header">
+    <h3>Prototype</h3>
+        <li> <a href= '{{ url_for("cube") }}'> Create Cubes</a> </li>
+        <li> <a href='{{ url_for("trees") }}'> Your Trees</a> </li>
+        <li> <a href='{{ url_for("arrow") }}'> Create MindMap</a> </li>
+
+</div>
+{% endblock %}
+
