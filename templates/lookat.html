@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic</title>
+    <meta name="description" content="Entities following and rotating to face a single animating target">
+    <meta property="og:image" content="https://raw.githubusercontent.com/supermedium/superframe/master/components/look-at/examples/basic/preview.gif"></meta>
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="/static/look/aframe-look-at-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-entity id="look-cam" look-controls wasd-controls position="0 1.6 0"></a-entity>
+
+      <a-entity id="container" position="0 0 -4">
+        <!-- A target entity -->
+        <a-sphere id="target" color="#404040" radius="0.5"
+                  animation="property: position; from: -8 6 -8; to: 8 -3 -2; dur: 1500; loop: true; dir: alternate"></a-sphere>
+
+        <!-- Entities look at the target -->
+        <a-entity position="5 3 0" rotation="0 70 0">
+          <a-box width="1" depth="1" height="1" color="#01A1F1" look-at="#target" position="-2 0 -4"></a-box>
+        </a-entity>
+        <a-box width="1" depth="1" height="1" color="#4CC3D9" look-at="#target"
+          position="-4 0 -2"></a-box>
+        <a-cylinder radius="0.6" height="2" color="#7BC8A4" look-at="#target"
+          position="0 0 -2"></a-cylinder>
+        <a-box width="0.5" depth="1" height="2" color="#F16745" look-at="#target"
+          position="4 0 -2"></a-box>
+        <a-cylinder radius="0.2" height="2" color="#7BC8A4" look-at="#target"
+          position="-4 0 1"></a-cylinder>
+        <a-box width="2" depth="1" height="0.25" color="#93648D" look-at="#target"
+          position="0 0 1"></a-box>
+        <a-box width="1" depth="2" height="0.5" color="#999" look-at="#target"
+          position="4 0 1"></a-box>
+
+        <!-- This entity looks at the camera. Use WASD controls to test it -->
+        <a-box width="2" depth="2" height="2" color="#FFC65D" look-at="#look-cam"
+          position="-6 2.5 -2"></a-box>
+      </a-entity>
+
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>

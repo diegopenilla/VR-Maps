@@ -1,7 +1,7 @@
 # Establish connection with the database
 from py2neo import Graph, Node, Relationship, NodeMatcher
 import time
-uri = "bolt://localhost:7687"
+uri = "bolt://0.0.0.0:7687"
 user = "neo4j"
 password = "Chipichapes"
 
@@ -16,7 +16,6 @@ matcher = NodeMatcher(g)
 print(len(g.nodes))
 
 print(len(g.relationships))
-
 # Need to insert this into the VR Application LOOKSAMAZING
 # Create nodes (if they don't exist) and link them
 def parent_child(root_type, branch_type,root, branch):
@@ -33,6 +32,8 @@ def sprout(root_type, branch_type,root, branches):
 # First Level _ _ _ _ _ _ _  _ 
 branches = ['TreeMaps', 'Akelius', 'Z-Hunt', 'WATTx', 'Medium', 'CV', 'Learning']
 sprout('MindMap', 'Cube', 'DiegoPenilla', branches)
+
+
 
 # Second Level _ _ _ _ _ _ _ _ _
 treemaps = ['Tech', 'Business', 'Design']

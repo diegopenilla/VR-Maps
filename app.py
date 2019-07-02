@@ -9,9 +9,11 @@ from wtforms.validators import Required
 
 from flask_bootstrap import Bootstrap
 # My snippets
-from snippets import create_text, create_shape
+from snippets import create_text, create_shape, circle_positions, create_img
 import random
+import math
 import numpy as np
+import time
 
 # DATABASE
 import pyrebase
@@ -28,7 +30,9 @@ config = {
 firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
-# _ _ _ _ _
+# Establish connection with the database
+
+# _ _ _ _
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 app.config['SECRET_KEY'] = 'epigen'
@@ -66,16 +70,54 @@ def example2():
         world = world + create_shape('a-box', color=c, position= [random.randint(0, 100), random.randint(0,100), random.randint(0,100)])
         world = world + create_shape('a-box', color=c, position= [random.randint(30, 30), random.randint(-90, 90), random.randint(0,19)])
         world = world + create_shape('a-sphere', color = c, position = [random.randint(-100,0), random.randint(-100,0), random.randint(-100,0)])
-    return render_template('example1.html', world=world) 
+    return render_template('MindMap.html', world=world) 
+
+# not working right now...
+@app.route('/mindmap')
+def mindmap():
+    from py2neo import Graph, Node, Relationship, NodeMatcher
+    uri = "bolt://0.0.0.0:7687"
+    user = "neo4j"
+    password = "Chipichapes"
+    #[session[levels]] => to VISIT a specific MindMap
+    x,y, paths = circle_positions('DiegoPenilla', 5)
+    texts = ['Learning', 'Akelius', 'TreeMaps', 'Z-Hunt', 'Medium', 'CV', 'AI', 'Web Development', 'Docker', 'Blbal']
+    world = ''
+    for i in range(len(x)-1):
+        #world = world + create_text(text='TreeMaps', position = [random.randint(-10,10), random.randint(-10,10), random.randint(-10,10)])
+        world = world + create_text(paths[i],position= [x[i],1, y[i]])
+       # world = world + create_img('flooron.png', position=[x[i],1, y[i]])
+    return render_template('MindMap.html', world=world) 
+
+
+@app.route('/mindmap2')
+def mindmap1():
+    world = ''
+    world = world + create_text(text='STARTHACKINGBRO', position = [-2, 2, -10])
+    for i in range(500):
+        #world = world + create_text(text='TreeMaps', position = [random.randint(-10,10), random.randint(-10,10), random.randint(-10,10)])
+        world = world + create_text(text="*", position= [random.randint(-10, 10), random.randint(-10,10), random.randint(-10,10)])
+    return render_template('MindMap.html', world=world) 
+
 
 @app.route('/arrow')
 def arrow():
     return render_template('index.html')
 
 
-@app.route('/example4')
-def example3():
-    return render_template('AR.html')
+#@app.route('/example4')
+##def example3():
+  #  return render_template('AR.html')
+
+@app.route("/markdown")
+def markdowncubes():
+    return render_template('markdowntest.html')
+
+
+@app.route("/look")
+def lookat():
+    return render_template('lookat-2.html')
+
 
 @app.route('/info')
 def info():

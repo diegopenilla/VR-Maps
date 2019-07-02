@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic</title>
+    <meta name="description" content="Entities following and rotating to face a single animating target">
+    <meta property="og:image" content="https://raw.githubusercontent.com/supermedium/superframe/master/components/look-at/examples/basic/preview.gif"></meta>
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="/static/look/aframe-look-at-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-entity id="look-cam" look-controls wasd-controls position="0 0 0"></a-entity>
+
+      <a-entity id="container" position="0 0 0">
+        <!-- A target entity -->
+        <!-- This entity looks at the camera. Use WASD controls to test it -->
+     
+        {{ world | safe }}
+
+      </a-entity>
+
+      <a-sky color="#000000"></a-sky>
+    </a-scene>
+  </body>
+</html>
