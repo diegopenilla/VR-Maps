@@ -27,18 +27,6 @@ def find_paths(name):
     # find_paths('DiegoPenilla') 
     return number_paths, paths
 # find_paths("DiegoPenilla") => root of the tree
-
-
-def quick():
-    cursor = g.run("MATCH (n)-[r]->() WHERE n.{} = '{}' RETURN COUNT(r)".format(type, str(name))
-    number_paths =  cursor.evaluate()
-
-
-g.run()
-
-g.run("MATCH (n:MindMap) RETURN n.name").data()
-
-
 opa = """
 CREATE 
   (`2` :MindMap {name:"Physics",image:"https://simplemind.eu/wp-content/uploads/2017/01/vakantie-2016-reading-figuur-1-1024x569.png"}) ,
@@ -49,9 +37,9 @@ CREATE
 
 def find_paths_type(name, type='name'):
     time.sleep(1)
-    cursor = g.run("MATCH (n)-[r]->() WHERE n.{} = '{}' RETURN COUNT(r)".format(type, str(name))
+    cursor = g.run("MATCH (n)-[r]->() WHERE n.{} = '{}' RETURN COUNT(r)".format(type, str(name)))
     number_paths =  cursor.evaluate()
-    cursor = g.run("MATCH (n)-[r]->(a) WHERE n.{}= '{}' RETURN a".format(type, str(name))
+    cursor = g.run("MATCH (n)-[r]->(a) WHERE n.{}= '{}' RETURN a".format(type, str(name)))
     paths = []
     for record in cursor:
         paths.append(dict(record['a'])['{}'.format(type)])
