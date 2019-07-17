@@ -3,14 +3,18 @@ version: '3'
 services:
 
   db:
-    image: neo4j:latest
+    image: neo4j:configured
     environment:
-      - NEO4J_AUTH=neo4j/Chipichapes
+      - "NEO4J_AUTH=neo4j/Chipichapes"
+      - "NEO4J_PASSWORD=Chipichapes"
+      #- "NEO4J_dbms_connectors_default_listen_address=0.0.0.0:5000"
+      #- "NEO4J_dbms_connector_bolt_advertised__address=0.0.0.0:7687"
     ports:
       - '7474:7474'
       - '7687:7687'
     volumes:
       - 'db:/data'
+      
 
   web:
     build: '.'

@@ -402,7 +402,7 @@ window.onload = function()
         alert(statement);
 
 
-        const Url='http://localhost:7474/db/data/transaction/commit'
+        const Url='http://0.0.0.0:7474/db/data/transaction/commit'
         const datos = {
           "statements" : [ {
             "statement" : statement
@@ -416,7 +416,7 @@ window.onload = function()
                 return "Basic " + hash;}
         
             var auth = make_base_auth('neo4j','Chipichapes');
-            var url = 'http://localhost:7474/user/neo4j';
+            var url = 'http://0.0.0.0:7474/user/neo4j';
         
             console.log("Happening");
             console.log(auth);

@@ -76,9 +76,7 @@ def example2():
 @app.route('/mindmap')
 def mindmap():
     from py2neo import Graph, Node, Relationship, NodeMatcher
-    uri = "bolt://0.0.0.0:7687"
-    user = "neo4j"
-    password = "Chipichapes"
+    import snippets
     #[session[levels]] => to VISIT a specific MindMap
     x,y, paths = circle_positions('DiegoPenilla', 5)
     texts = ['Learning', 'Akelius', 'TreeMaps', 'Z-Hunt', 'Medium', 'CV', 'AI', 'Web Development', 'Docker', 'Blbal']
@@ -207,4 +205,6 @@ def trees():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host = '0.0.0.0',port=5000)
+    app.run(host = '0.0.0.0', port=5000)
+
+

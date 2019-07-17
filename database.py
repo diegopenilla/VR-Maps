@@ -34,7 +34,6 @@ branches = ['TreeMaps', 'Akelius', 'Z-Hunt', 'WATTx', 'Medium', 'CV', 'Learning'
 sprout('MindMap', 'Cube', 'DiegoPenilla', branches)
 
 
-
 # Second Level _ _ _ _ _ _ _ _ _
 treemaps = ['Tech', 'Business', 'Design']
 sprout("Cube", 'Cube1', 'TreeMaps', treemaps)
