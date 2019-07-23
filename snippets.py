@@ -34,7 +34,6 @@ CREATE
   (`2`)-[:`LINKS` ]->(`3`)
 """
 
-
 def find_paths_type(name, type='name'):
     time.sleep(1)
     cursor = g.run("MATCH (n)-[r]->() WHERE n.{} = '{}' RETURN COUNT(r)".format(type, str(name)))
