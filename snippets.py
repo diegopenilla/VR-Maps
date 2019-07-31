@@ -52,7 +52,6 @@ def download_image(img_url='https://websunsay.pp.ua/img/workplace.jpg', output='
     wget.download(img_url, f'temp/{output}')  
 
 
-
 def circle_positions(name, radius):
     number_paths, paths = find_paths(name)
     whole_circle = 2*math.pi
@@ -109,3 +108,56 @@ def create_shape(object, position, color):
 
 
       #<a-entity position="-5 2 -9" look-at="#look-cam" text="width: 2; lineHeight: 50; letterSpacing: 5; color: white; value: Funciono!!"></a-entity>
+
+
+## NEW _ _ _ _
+
+def find_neighbors(name='DiegoPenilla', target='Cube'):
+    cypher = '''MATCH (a:MindMap { name: '%s' })
+    RETURN [(a)-->(b) WHERE b:%s | b.name] AS names''' % (name, target)
+    time.sleep(1)
+    cursor = g.run(cypher)
+    neighbors =  cursor.evaluate()
+    return neighbors
+
+def first_circle(name, radius):
+    paths = find_neighbors(name)
+    number_paths = len(paths)
+    whole_circle = 2*math.pi
+    path_angle = whole_circle/number_paths
+    angle = 0
+    # holds [[start, end] .. for all paths]
+    angles = []
+    x, y  = [],[]
+    for i in range(number_paths):
+        x.append(radius*math.cos(angle))
+        y.append(radius*math.sin(angle))
+        # angles 
+        angles.append([angle-path_angle/2, angle+path_angle/2])
+        angle += path_angle
+    
+    # creating first cicle world
+    world = ''
+    for i in range(len(x)):
+        #world = world + create_text(text='TreeMaps', position = [random.randint(-10,10), random.randint(-10,10), random.randint(-10,10)])
+        world = world + create_text(paths[i],position= [x[i],1, y[i]])
+    return world, x, y, paths, angles
+
+def next_circle(world, x, y, paths, angles, radius, target='Cube1'):
+    rango = angles[0][1] - angles[0][0]
+    x_d, y_d, nodes_d = [], [], []
+    print(x)
+    for angle, nom, x_pos, y_pos in zip(angles, paths, x, y):
+        neighbors = find_neighbors(name=nom, target=target)
+        current = angle[0]
+        for n in neighbors:
+            x_d.append(x_pos + radius*math.cos(current))
+            y_d.append(y_pos + radius*math.sin(current))
+            nodes_d.append(n)
+            current += rango/len(neighbors)
+    
+    # creating second circle
+    for i in range(len(x_d)-1):
+        world += create_text(nodes_d[i],position= [x_d[i], 1, y_d[i]])
+    print(nodes_d)
+    return world

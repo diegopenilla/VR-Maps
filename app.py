@@ -9,7 +9,7 @@ from wtforms.validators import Required
 
 from flask_bootstrap import Bootstrap
 # My snippets
-from snippets import create_text, create_shape, circle_positions, create_img
+from snippets import *
 import random
 import math
 import numpy as np
@@ -78,18 +78,35 @@ def mindmap():
     from py2neo import Graph, Node, Relationship, NodeMatcher
     import snippets
     #[session[levels]] => to VISIT a specific MindMap
-    x,y, paths = circle_positions('DiegoPenilla', 5)
-    texts = ['Learning', 'Akelius', 'TreeMaps', 'Z-Hunt', 'Medium', 'CV', 'AI', 'Web Development', 'Docker', 'Blbal']
-    world = ''
-    for i in range(len(x)-1):
-        #world = world + create_text(text='TreeMaps', position = [random.randint(-10,10), random.randint(-10,10), random.randint(-10,10)])
-        world = world + create_text(paths[i],position= [x[i],1, y[i]])
-       # world = world + create_img('flooron.png', position=[x[i],1, y[i]])
+    #NOTE: THIS NEEDS HEAVILY REFACTORING
+    world, x, y, paths, angles = first_circle('DiegoPenilla', 7)
+    #print(len(world))
+    #world += next_circle(world, x, y, paths, angles, 7, target='Cube1')
+    #world += next_circle(world, x, y, paths, angles, 7, target='Cube2')
+    print(len(world))
+    return render_template('MindMap.html', world=world) 
+
+# not working right now...
+@app.route('/mindmap_secondcircle')
+def mindmap_secondcircle():
+    from py2neo import Graph, Node, Relationship, NodeMatcher
+    import snippets
+    #[session[levels]] => to VISIT a specific MindMap
+    #NOTE: THIS NEEDS HEAVILY REFACTORING
+    world, x, y, paths, angles = first_circle('DiegoPenilla', 7)
+    print(len(world))
+    world += next_circle(world, x, y, paths, angles, 7, target='Cube1')
+    #world += next_circle(world, x, y, paths, angles, 7, target='Cube2')
+    print(len(world))
     return render_template('MindMap.html', world=world) 
 
 
+@app.route('/terminal')
+def terminal():
+    return render_template('textarea.html')
+
 @app.route('/mindmap2')
-def mindmap1():
+def mindmap2():
     world = ''
     world = world + create_text(text='STARTHACKINGBRO', position = [-2, 2, -10])
     for i in range(500):
@@ -108,7 +125,7 @@ def arrow():
   #  return render_template('AR.html')
 
 @app.route("/markdown")
-def markdowncubes():
+def markdown():
     return render_template('markdowntest.html')
 
 
@@ -127,8 +144,7 @@ def info():
 
 @app.route('/')
 def index():
-    # need to get the link right!
-    return render_template('index2.html')
+    return render_template('home.html')
 
 
 class CubeText(FlaskForm):

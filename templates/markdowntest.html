@@ -19,11 +19,14 @@
     >
       <a-assets>
         <a-asset-item id="md" src="/static/markdowntest.md"></a-asset-item>
-      </a-assets>
+        <a-asset-item id="tree" src="/static/markdown_tree.md"></a-asset-item>
+        <a-asset-item id="cube" src="/static/markdown_cube.md"></a-asset-item>
+        <a-asset-item id="db" src="/static/markdown_db.md"></a-asset-item>
+      </a-assets> 
       <a-entity markdown="src: #md" position="0 1.5 -1"></a-entity>
-      <a-entity markdown="src: #md" position="-1 1.5 -1"></a-entity>
-      <a-entity markdown="src: #md" position="1 1.5 -1"></a-entity>
-    
+      <a-entity markdown="src: #tree" position="0 1.5 -2.5"></a-entity>
+      <a-entity markdown="src: #cube" position="0 1.5 -4.0"></a-entity>
+      <a-entity markdown="src: #db" position="0 1.5 -5.5"></a-entity>
     </a-scene>
     
     <!-- include the Glitch button to show what the webpage is about and
@@ -33,3 +36,7 @@
   </body>
 </html>
 
+<!--<a-entity markdown="src: #opa" position="-1 1.5 -1"></a-entity>
+      <a-entity markdown="src: #epa" position="1 1.5 -1"></a-entity>
+      <a-asset-item id="opa" src="/static/markdownpdf.md"></a-asset-item>
+        <a-asset-item id="epa" src="/static/markdown_big.md"></a-asset-item>-->
