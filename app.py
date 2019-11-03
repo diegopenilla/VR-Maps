@@ -63,7 +63,7 @@ def example2():
     # a-box a-sphere a-plane
     positions = []
     world = ''
-    for i in range(300):
+    for i in range(10):
         r = lambda: random.randint(0,255)
         c = '#%02X%02X%02X' % (r(),r(),r())
         #world = world + create_text(text='TreeMaps', position = [random.randint(-10,10), random.randint(-10,10), random.randint(-10,10)])
@@ -221,6 +221,6 @@ def trees():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(host = '0.0.0.0', port=5000)
+    app.run(host = '0.0.0.0', port=7000)
 
 
