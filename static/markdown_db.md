@@ -1,3 +1,1 @@
-# Neo4j
-
-![DB](../static/dbarrow.png)
+![Credits](../static/credits.png)

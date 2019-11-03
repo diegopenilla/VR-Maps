@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>aframe-markdown demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">   
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-markdown/dist/aframe-markdown.min.js"></script>
+  </head>  
+  <body>
+  <a-scene 
+      background="color: black"
+      markdown="
+        normalFont: https://unpkg.com/aframe-markdown@0.1.2/fonts/Roboto-msdf.json; 
+        boldFont: https://unpkg.com/aframe-markdown@0.1.2/fonts/Roboto-Bold-msdf.json;
+      "
+    >
+      <a-assets>
+        <a-image id="img" src="/static/intro.png"></a-image>
+        <a-asset-item id="md" src="/static/markdowntest.md"></a-asset-item>
+        <a-asset-item id="tree" src="/static/markdown_tree.md"></a-asset-item>
+        <a-asset-item id="cube" src="/static/markdown_cube.md"></a-asset-item>
+        <a-asset-item id="db" src="/static/markdown_db.md"></a-asset-item>
+      </a-assets> 
+      <a-entity markdown="src: #img" position="0 1.5 -7.5"></a-entity>
+      <a-entity markdown="src: #md" position="0 1.5 -1"></a-entity>
+      <a-entity markdown="src: #tree" position="0 1.5 -2.5"></a-entity>
+      <a-entity markdown="src: #cube" position="0 1.5 -4.0"></a-entity>
+      <a-entity markdown="src: #db" position="0 1.5 -5.5"></a-entity>
+    </a-scene>
+    
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+  </body>
+</html>
+
+<!--<a-entity markdown="src: #opa" position="-1 1.5 -1"></a-entity>
+      <a-entity markdown="src: #epa" position="1 1.5 -1"></a-entity>
+      <a-asset-item id="opa" src="/static/markdownpdf.md"></a-asset-item>
+        <a-asset-item id="epa" src="/static/markdown_big.md"></a-asset-item>-->

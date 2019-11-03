@@ -1,6 +1,2 @@
-# Cube
-
-- Create and share your virtual worlds with your memories
-
-
-![A Cube](../static/cube.png)
+Put photo of Pi
+![A Cube](../static/credits.png)
