@@ -36,9 +36,6 @@ python3 database.py
 3. Host a web page explaining what it does (for business side)
 4. explore pitching and funding oppertunities in berlin
 
-### To Do Long Term
-1. found a startup
-
 # Local Development
 
 ## Start VR Server
