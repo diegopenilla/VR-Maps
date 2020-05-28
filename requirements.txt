@@ -33,7 +33,7 @@ plotly==3.9.0
 protobuf==3.8.0rc1
 pyasn1==0.4.5
 pyasn1-modules==0.2.5
-pycryptodome==3.4.3
+pycryptodome==3.6.6
 pyparsing==2.4.0
 Pyrebase==3.0.27
 pyrsistent==0.15.2
